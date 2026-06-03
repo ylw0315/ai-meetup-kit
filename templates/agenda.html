@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>活动议程 - 普通人 AI 交流会</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="{{ url_for('index') }}">AI Meetup Kit</a>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">首页</a>
+                <a href="{{ url_for('agenda') }}">活动议程</a>
+                <a href="{{ url_for('register') }}">我要报名</a>
+                <a href="{{ url_for('codex') }}">Codex 教学</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="section">
+            <p class="eyebrow">Agenda</p>
+            <h1>活动议程</h1>
+            <p class="lead">先理解，再动手。整个流程围绕“把一个普通想法变成小工具”展开。</p>
+
+            <ol class="timeline">
+                <li>
+                    <strong>开场：普通人为什么需要 Codex</strong>
+                    <span>认识聊天 AI 和生产力 AI 的区别。</span>
+                </li>
+                <li>
+                    <strong>案例：从一个生活问题开始</strong>
+                    <span>把模糊需求整理成可以交给 AI 执行的任务。</span>
+                </li>
+                <li>
+                    <strong>现场演示：搭建一个小工具骨架</strong>
+                    <span>观察 Codex 如何创建文件、运行检查并修复问题。</span>
+                </li>
+                <li>
+                    <strong>讨论：你的第一个 AI 小工具</strong>
+                    <span>收集参与者问题，形成后续共创方向。</span>
+                </li>
+            </ol>
+        </section>
+    </main>
+</body>
+</html>
