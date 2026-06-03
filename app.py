@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from flask import Flask, render_template, render_template_string, request
+from flask import Flask, render_template, request
 
 
 app = Flask(__name__)
@@ -14,40 +14,6 @@ REGISTRATION_FIELDS = (
     "ai_experience",
     "learning_goal",
 )
-
-SUCCESS_TEMPLATE = """<!doctype html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>报名成功 - AI Meetup Kit</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <header class="site-header">
-        <nav class="nav">
-            <a class="brand" href="{{ url_for('index') }}">AI Meetup Kit</a>
-            <div class="nav-links">
-                <a href="{{ url_for('index') }}">首页</a>
-                <a href="{{ url_for('agenda') }}">活动议程</a>
-                <a href="{{ url_for('register') }}">我要报名</a>
-                <a href="{{ url_for('codex') }}">Codex 教学</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="page">
-        <section class="section narrow">
-            <p class="eyebrow">Success</p>
-            <h1>报名已提交</h1>
-            <p class="lead">我们已经保存你的报名信息，活动前会再联系你确认细节。</p>
-            <a class="button" href="{{ url_for('register') }}">返回报名页</a>
-        </section>
-    </main>
-</body>
-</html>
-"""
-
 
 def load_registrations():
     try:
@@ -99,7 +65,7 @@ def register():
             for field in REGISTRATION_FIELDS
         }
         save_registration(registration)
-        return render_template_string(SUCCESS_TEMPLATE)
+        return render_template("register.html", success=True)
 
     return render_template("register.html")
 
