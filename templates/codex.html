@@ -25,34 +25,76 @@
         <section class="page-heading">
             <p class="eyebrow">Codex Guide</p>
             <h1>把需求讲清楚，AI 才能把活做清楚</h1>
-            <p class="lead">这页是活动中的入门速览。目标不是让你立刻成为程序员，而是让你学会把一个想法交给 Codex，并看懂它正在做什么。</p>
+            <p class="lead">Codex 可以协助阅读项目、修改文件、运行命令和整理结果。它不是保证一次成功的魔法工具，更适合在明确目标、边做边验收的过程中，帮助普通人把想法推进成可运行的小工具。</p>
         </section>
 
         <section class="guide-grid" aria-label="Codex 教学内容">
             <article class="guide-card">
                 <span class="card-number">01</span>
-                <h2>Codex 是什么</h2>
-                <p>Codex 是能阅读项目文件、修改代码、运行检查并解释结果的 AI 编程协作者。你给它目标，它把目标拆成可以执行的步骤。</p>
+                <h2>Codex 简介</h2>
+                <p>Codex 是能阅读项目文件、修改代码、运行检查并解释结果的 AI 编程协作者。你给它目标和边界，它把目标拆成可以执行的步骤。</p>
             </article>
             <article class="guide-card">
                 <span class="card-number">02</span>
-                <h2>能帮普通人做什么</h2>
+                <h2>普通人的使用场景</h2>
                 <p>它适合把重复流程做成小工具：报名表、订单整理、学习清单、活动页面、资料归档、简单后台和自动检查。</p>
             </article>
             <article class="guide-card">
                 <span class="card-number">03</span>
-                <h2>如何写好需求</h2>
-                <p>说清楚使用者、页面内容、字段名称、不能做什么，以及怎样算完成。越具体，Codex 越容易一次做对。</p>
+                <h2>先从小项目开始</h2>
+                <p>选择一个低风险、能快速验证的小需求，练熟“提出需求、分步执行、检查结果”的流程，再考虑更大的系统。</p>
             </article>
-            <article class="guide-card">
+            <article class="guide-card guide-card-wide">
                 <span class="card-number">04</span>
-                <h2>多 Agent 协作是什么</h2>
-                <p>复杂项目可以让不同 Agent 分工：前端管页面，后端管数据，内容 Agent 管文案，测试 Agent 管验收。</p>
+                <h2>好提示词的结构</h2>
+                <p>目标：说明最终要得到什么。背景：补充使用者、场景和已有文件。约束：写清哪些文件能改、哪些不能改。输出格式：说明要页面、清单、表格还是说明文档。验收标准：明确怎样算完成，例如页面能打开、文案包含指定内容、测试通过。</p>
             </article>
             <article class="guide-card guide-card-wide">
                 <span class="card-number">05</span>
-                <h2>常见误区</h2>
-                <p>不要一上来要求“大而全的平台”。先做最小可用版本；不要只说“做得好看”，要给页面、内容、字段和验收标准；不要只看命令成功，要打开真实页面检查。</p>
+                <h2>示例提示词，可直接复制</h2>
+                <p>下面这段可以替换成你自己的项目和需求。</p>
+                <textarea readonly rows="18" cols="80" aria-label="可复制示例提示词">你是一个帮助普通人做小工具的 Codex 协作者。
+
+目标：
+把这个项目改成一个线下活动报名网站，首页要让普通人看懂活动价值，议程页要说明流程，教学页要提供可复制的使用示例。
+
+背景：
+这个活动面向不会编程但想了解 AI Agent 的用户。他们关心的是能不能把自己的工作想法变成实际工具，而不是复杂技术概念。
+
+约束：
+- 只修改 templates/index.html、templates/agenda.html、templates/codex.html、README.md
+- 不修改报名表字段
+- 不调用外部 API
+- 不调用 OpenAI API
+- 不调用 Sora API
+- 文案不要夸大 AI 能力，不承诺一次成功
+- 语言自然、清楚、适合线下分享
+
+输出格式：
+- 直接完成文件修改
+- 最后用简短列表说明改了哪些页面
+- 说明你运行了哪些检查
+
+验收标准：
+- 首页说明“不讲空概念，现场做出来”
+- 教学页包含目标、背景、约束、输出格式、验收标准
+- 示例提示词可以复制
+- Git diff 只包含允许修改的文件</textarea>
+            </article>
+            <article class="guide-card guide-card-wide">
+                <span class="card-number">06</span>
+                <h2>常见错误</h2>
+                <p>一次性需求太大：先做最小可用版本。没有验收标准：Codex 很难判断结果是否符合期待。文件边界不清：容易误改配置、数据或生产相关文件。不让它测试：只看命令成功不够，要确认真实页面或流程能用。</p>
+            </article>
+            <article class="guide-card">
+                <span class="card-number">07</span>
+                <h2>不要给敏感密钥</h2>
+                <p>不要把 API Key、账号密码、私有证书或客户隐私直接写进提示词或提交到代码里。</p>
+            </article>
+            <article class="guide-card">
+                <span class="card-number">08</span>
+                <h2>不要直接操作重要生产数据</h2>
+                <p>先使用复制的数据、测试文件或小样本。重要数据要备份，并保留人工确认环节。</p>
             </article>
         </section>
     </main>
