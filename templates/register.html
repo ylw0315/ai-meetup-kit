@@ -3,44 +3,68 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="报名参加普通人 AI 交流会。">
     <title>我要报名 - 普通人 AI 交流会</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
     <header class="site-header">
-        <nav class="nav">
+        <nav class="nav" aria-label="主导航">
             <a class="brand" href="{{ url_for('index') }}">AI Meetup Kit</a>
             <div class="nav-links">
                 <a href="{{ url_for('index') }}">首页</a>
                 <a href="{{ url_for('agenda') }}">活动议程</a>
-                <a href="{{ url_for('register') }}">我要报名</a>
+                <a class="active" href="{{ url_for('register') }}">我要报名</a>
                 <a href="{{ url_for('codex') }}">Codex 教学</a>
             </div>
         </nav>
     </header>
 
-    <main class="page">
-        <section class="section narrow">
-            <p class="eyebrow">Register</p>
-            <h1>我要报名</h1>
-            <p class="lead">当前页面先提供 GET 展示，后续 Backend Agent 可以继续实现表单提交和保存。</p>
+    <main id="main" class="page">
+        <section class="form-layout">
+            <div class="form-intro">
+                <p class="eyebrow">Register</p>
+                <h1>报名参加线下 AI 交流会</h1>
+                <p class="lead">留下你的基本信息和最想解决的问题，我们会优先准备更贴近现场参与者的案例。</p>
+                <div class="note-box">
+                    <strong>适合带着问题来</strong>
+                    <p>例如：客户登记太乱、孩子学习资料难整理、活动报名想自动统计、门店内容想快速生成。</p>
+                </div>
+            </div>
 
-            <form class="form" method="get">
-                <label>
-                    姓名
-                    <input type="text" name="name" placeholder="请输入姓名">
-                </label>
-                <label>
-                    联系方式
-                    <input type="text" name="contact" placeholder="手机号或微信">
-                </label>
-                <label>
-                    你想用 AI 解决什么问题
-                    <textarea name="question" rows="5" placeholder="例如：整理客户订单、生成学习计划、管理活动报名"></textarea>
-                </label>
-                <button class="button" type="button">提交功能待开发</button>
+            <form class="form" method="post" action="/register">
+                {% if success %}
+                <div class="notice" role="status">报名信息已收到，我们会通过微信联系你。</div>
+                {% endif %}
+
+                <label for="name">姓名</label>
+                <input id="name" type="text" name="name" autocomplete="name" required>
+
+                <label for="wechat">微信</label>
+                <input id="wechat" type="text" name="wechat" autocomplete="off" required>
+
+                <label for="occupation">职业</label>
+                <input id="occupation" type="text" name="occupation" placeholder="例如：家长、老师、店主、自由职业" required>
+
+                <label for="ai_experience">是否用过 AI</label>
+                <select id="ai_experience" name="ai_experience" required>
+                    <option value="">请选择</option>
+                    <option value="never">没怎么用过</option>
+                    <option value="chat">用过豆包、Kimi、ChatGPT 等聊天工具</option>
+                    <option value="workflow">尝试过用 AI 做文案、表格或自动化</option>
+                </select>
+
+                <label for="learning_goal">最想学习什么</label>
+                <textarea id="learning_goal" name="learning_goal" rows="5" placeholder="写下你最想让 AI 帮你解决的一件事" required></textarea>
+
+                <button class="button full-button" type="submit">提交报名</button>
             </form>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>AI Meetup Kit · 普通人的 AI 实战交流会</p>
+    </footer>
 </body>
 </html>

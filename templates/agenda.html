@@ -3,47 +3,72 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="普通人 AI 交流会时间线式活动议程。">
     <title>活动议程 - 普通人 AI 交流会</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
     <header class="site-header">
-        <nav class="nav">
+        <nav class="nav" aria-label="主导航">
             <a class="brand" href="{{ url_for('index') }}">AI Meetup Kit</a>
             <div class="nav-links">
                 <a href="{{ url_for('index') }}">首页</a>
-                <a href="{{ url_for('agenda') }}">活动议程</a>
+                <a class="active" href="{{ url_for('agenda') }}">活动议程</a>
                 <a href="{{ url_for('register') }}">我要报名</a>
                 <a href="{{ url_for('codex') }}">Codex 教学</a>
             </div>
         </nav>
     </header>
 
-    <main class="page">
-        <section class="section">
+    <main id="main" class="page">
+        <section class="page-heading">
             <p class="eyebrow">Agenda</p>
-            <h1>活动议程</h1>
-            <p class="lead">先理解，再动手。整个流程围绕“把一个普通想法变成小工具”展开。</p>
+            <h1>一场能跟上的 90 分钟工作坊</h1>
+            <p class="lead">流程从“听懂差别”开始，到“看见工具成型”，最后把每个人的问题整理成可继续执行的 Codex 任务。</p>
+        </section>
 
-            <ol class="timeline">
-                <li>
-                    <strong>开场：普通人为什么需要 Codex</strong>
-                    <span>认识聊天 AI 和生产力 AI 的区别。</span>
-                </li>
-                <li>
-                    <strong>案例：从一个生活问题开始</strong>
-                    <span>把模糊需求整理成可以交给 AI 执行的任务。</span>
-                </li>
-                <li>
-                    <strong>现场演示：搭建一个小工具骨架</strong>
-                    <span>观察 Codex 如何创建文件、运行检查并修复问题。</span>
-                </li>
-                <li>
-                    <strong>讨论：你的第一个 AI 小工具</strong>
-                    <span>收集参与者问题，形成后续共创方向。</span>
-                </li>
-            </ol>
+        <section class="timeline" aria-label="活动时间线">
+            <article class="timeline-item">
+                <time datetime="19:00">19:00 - 19:10</time>
+                <div>
+                    <h2>开场：普通人为什么需要 Codex</h2>
+                    <p>用生活和工作里的小场景，讲清楚聊天 AI 与生产力 AI 的区别。</p>
+                </div>
+            </article>
+            <article class="timeline-item">
+                <time datetime="19:10">19:10 - 19:30</time>
+                <div>
+                    <h2>案例拆解：从一个真实需求开始</h2>
+                    <p>把“我想自动整理报名信息”拆成页面、字段、保存方式和验收标准。</p>
+                </div>
+            </article>
+            <article class="timeline-item">
+                <time datetime="19:30">19:30 - 20:05</time>
+                <div>
+                    <h2>现场演示：搭建一个小工具骨架</h2>
+                    <p>观察 Codex 如何创建文件、调整页面、修复问题，并让结果能在浏览器里打开。</p>
+                </div>
+            </article>
+            <article class="timeline-item">
+                <time datetime="20:05">20:05 - 20:25</time>
+                <div>
+                    <h2>共创练习：写出你的第一条需求</h2>
+                    <p>每位参与者选择一个真实问题，现场改写成可以交给 AI 执行的任务卡。</p>
+                </div>
+            </article>
+            <article class="timeline-item">
+                <time datetime="20:25">20:25 - 20:30</time>
+                <div>
+                    <h2>收尾：下一步怎么继续做</h2>
+                    <p>说明如何从一个小工具继续迭代，以及后续交流、答疑和部署建议。</p>
+                </div>
+            </article>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>AI Meetup Kit · 普通人的 AI 实战交流会</p>
+    </footer>
 </body>
 </html>

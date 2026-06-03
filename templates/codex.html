@@ -3,43 +3,62 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="给普通人的 Codex 入门教学。">
     <title>Codex 教学 - 普通人 AI 交流会</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
     <header class="site-header">
-        <nav class="nav">
+        <nav class="nav" aria-label="主导航">
             <a class="brand" href="{{ url_for('index') }}">AI Meetup Kit</a>
             <div class="nav-links">
                 <a href="{{ url_for('index') }}">首页</a>
                 <a href="{{ url_for('agenda') }}">活动议程</a>
                 <a href="{{ url_for('register') }}">我要报名</a>
-                <a href="{{ url_for('codex') }}">Codex 教学</a>
+                <a class="active" href="{{ url_for('codex') }}">Codex 教学</a>
             </div>
         </nav>
     </header>
 
-    <main class="page">
-        <section class="section">
+    <main id="main" class="page">
+        <section class="page-heading">
             <p class="eyebrow">Codex Guide</p>
-            <h1>Codex 教学</h1>
-            <p class="lead">这里预留活动中的 Codex 入门内容，后续 Content Agent 可以继续补充详细教程。</p>
+            <h1>把需求讲清楚，AI 才能把活做清楚</h1>
+            <p class="lead">这页是活动中的入门速览。目标不是让你立刻成为程序员，而是让你学会把一个想法交给 Codex，并看懂它正在做什么。</p>
+        </section>
 
-            <div class="grid">
-                <article class="card">
-                    <h3>1. 说清楚目标</h3>
-                    <p>用一句话说明你想做什么、给谁用、做到什么程度。</p>
-                </article>
-                <article class="card">
-                    <h3>2. 让 Codex 先搭骨架</h3>
-                    <p>从最小可用版本开始，先有页面、路由和运行方式。</p>
-                </article>
-                <article class="card">
-                    <h3>3. 运行检查再迭代</h3>
-                    <p>每次小步修改后启动项目，确认真实页面可以访问。</p>
-                </article>
-            </div>
+        <section class="guide-grid" aria-label="Codex 教学内容">
+            <article class="guide-card">
+                <span class="card-number">01</span>
+                <h2>Codex 是什么</h2>
+                <p>Codex 是能阅读项目文件、修改代码、运行检查并解释结果的 AI 编程协作者。你给它目标，它把目标拆成可以执行的步骤。</p>
+            </article>
+            <article class="guide-card">
+                <span class="card-number">02</span>
+                <h2>能帮普通人做什么</h2>
+                <p>它适合把重复流程做成小工具：报名表、订单整理、学习清单、活动页面、资料归档、简单后台和自动检查。</p>
+            </article>
+            <article class="guide-card">
+                <span class="card-number">03</span>
+                <h2>如何写好需求</h2>
+                <p>说清楚使用者、页面内容、字段名称、不能做什么，以及怎样算完成。越具体，Codex 越容易一次做对。</p>
+            </article>
+            <article class="guide-card">
+                <span class="card-number">04</span>
+                <h2>多 Agent 协作是什么</h2>
+                <p>复杂项目可以让不同 Agent 分工：前端管页面，后端管数据，内容 Agent 管文案，测试 Agent 管验收。</p>
+            </article>
+            <article class="guide-card guide-card-wide">
+                <span class="card-number">05</span>
+                <h2>常见误区</h2>
+                <p>不要一上来要求“大而全的平台”。先做最小可用版本；不要只说“做得好看”，要给页面、内容、字段和验收标准；不要只看命令成功，要打开真实页面检查。</p>
+            </article>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>AI Meetup Kit · 普通人的 AI 实战交流会</p>
+    </footer>
 </body>
 </html>
