@@ -4,6 +4,8 @@
 
 项目适合用来做现场演示：从一个普通人的真实想法出发，拆成清楚需求，再让 Codex 按阶段完成页面、内容、检查和迭代。它不依赖外部 API，也不需要 OpenAI API 或 Sora API 才能本地运行。
 
+当前项目是最小 Flask 应用，不使用数据库。报名数据会追加保存到本地文件 `data/registrations.json`，`requirements.txt` 只包含 Flask。
+
 ## 项目用途
 
 - 展示一个线下 AI 交流会的活动首页、议程页、报名页和 Codex 教学页。
@@ -45,9 +47,50 @@ http://127.0.0.1:5000
 - 我要报名：`/register`
 - Codex 教学：`/codex`
 
+## 测试报名提交
+
+打开 `http://127.0.0.1:5000/register`，填写并提交表单。表单会 POST 到 `/register`，字段包括：
+
+- `name`
+- `wechat`
+- `occupation`
+- `ai_experience`
+- `learning_goal`
+
+提交成功后，报名信息会追加写入 `data/registrations.json`。
+
+也可以用 Flask test client 做一次快速检查：
+
+```powershell
+@'
+from app import app, REGISTRATIONS_PATH
+
+payload = {
+    "name": "测试用户",
+    "wechat": "test_wechat",
+    "occupation": "活动参与者",
+    "ai_experience": "chat",
+    "learning_goal": "学习如何用 Codex 做小工具",
+}
+
+with app.test_client() as client:
+    response = client.post("/register", data=payload)
+    print(response.status_code)
+    print(REGISTRATIONS_PATH.read_text(encoding="utf-8"))
+'@ | py -
+```
+
+## QA 验收结果
+
+- Python 语法检查通过：`py -m py_compile app.py`
+- Flask test client 检查通过：`/`、`/agenda`、`/register`、`/codex` 均可访问。
+- 报名 POST 检查通过：表单提交到 `/register`，并会追加写入 `data/registrations.json`。
+- 依赖检查通过：`requirements.txt` 保持简单，只包含 Flask。
+- API 和数据库检查通过：未发现 OpenAI API、Sora API、其他外部 API 或数据库调用。
+
 ## 后续可以如何扩展
 
-- 完善报名流程：增加提交成功页、字段校验、重复报名提示和本地数据查看方式。
+- 继续完善报名流程：增加字段校验、重复报名提示和本地数据查看方式。
 - 优化活动页面：加入更清晰的移动端排版、活动时间地点、主讲人信息和常见问题。
 - 扩展教学内容：加入更多可复制提示词、现场案例、分阶段任务模板和验收清单。
 - 做多 Agent 演示：让 Content Agent 写内容，Frontend Agent 改视觉和交互，Backend Agent 处理报名保存与数据检查。

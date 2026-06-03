@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <form class="form" method="post" action="/register">
+            <form class="form" method="post" action="{{ url_for('register') }}">
                 {% if success %}
                 <div class="notice" role="status">报名信息已收到，我们会通过微信联系你。</div>
                 {% endif %}
