@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>普通人 AI 交流会</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="{{ url_for('index') }}">AI Meetup Kit</a>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">首页</a>
+                <a href="{{ url_for('agenda') }}">活动议程</a>
+                <a href="{{ url_for('register') }}">我要报名</a>
+                <a href="{{ url_for('codex') }}">Codex 教学</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <p class="eyebrow">线下交流会</p>
+            <h1>普通人也能用 Codex 把想法变成小工具</h1>
+            <p class="lead">这是一场面向 AI 初学者的轻量活动。我们会从真实生活和工作问题出发，演示如何把一句想法拆成 Codex 可以执行的小项目。</p>
+            <a class="button" href="{{ url_for('register') }}">我要报名</a>
+        </section>
+
+        <section class="section">
+            <h2>活动适合谁</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>想学 AI 但不知道从哪开始</h3>
+                    <p>不讲复杂术语，先从能看见结果的小工具开始。</p>
+                </article>
+                <article class="card">
+                    <h3>有工作或生意里的重复任务</h3>
+                    <p>把日常流程拆成输入、处理和输出，找到自动化入口。</p>
+                </article>
+                <article class="card">
+                    <h3>想理解 Codex 能做什么</h3>
+                    <p>现场看一个项目骨架如何被 AI 助手搭起来。</p>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

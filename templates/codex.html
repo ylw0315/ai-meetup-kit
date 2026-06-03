@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codex 教学 - 普通人 AI 交流会</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="{{ url_for('index') }}">AI Meetup Kit</a>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">首页</a>
+                <a href="{{ url_for('agenda') }}">活动议程</a>
+                <a href="{{ url_for('register') }}">我要报名</a>
+                <a href="{{ url_for('codex') }}">Codex 教学</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="section">
+            <p class="eyebrow">Codex Guide</p>
+            <h1>Codex 教学</h1>
+            <p class="lead">这里预留活动中的 Codex 入门内容，后续 Content Agent 可以继续补充详细教程。</p>
+
+            <div class="grid">
+                <article class="card">
+                    <h3>1. 说清楚目标</h3>
+                    <p>用一句话说明你想做什么、给谁用、做到什么程度。</p>
+                </article>
+                <article class="card">
+                    <h3>2. 让 Codex 先搭骨架</h3>
+                    <p>从最小可用版本开始，先有页面、路由和运行方式。</p>
+                </article>
+                <article class="card">
+                    <h3>3. 运行检查再迭代</h3>
+                    <p>每次小步修改后启动项目，确认真实页面可以访问。</p>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
